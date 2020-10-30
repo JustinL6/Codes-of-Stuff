@@ -1,0 +1,116 @@
+import random
+print('Hello,\nThis is Magic 8 ball:\n')
+
+#this is the list of answers that the script draws from:
+
+who = ['thy mother','thy father','no one','one you will meet later','one of your relatives','a teacher'
+    ,'a worker','someone you know','a stranger','you will never know','a entity','a mere peasant']
+what = ['I do not know', 'consult the fabled Wikipedia','the answer lies in your mind already',
+        'I cannot give you an answer','it is what you hate most','it is what you love most']
+where = ['an unspeakable place','upon the spire','in your room', 'at school', 'at home', 'somewhere in the world','I do not know','use google maps']
+when = ['soon','now','perhaps later','yesterday','tomorrow','when the hour strikes twelve','upon your deathbed','I do not know']
+why = ['the world works in mysterious ways','a consequence of your own actions','it is what it is',
+       'because you are not you when you are hungry', 'because of chance','because of things outside your control',
+       'it was created that way','because of the laws of this universe','I do not know']
+how = ['the world works in mysterious ways','a consequence of your own actions','it is what it is',
+       'because you are not you when you are hungry', 'because of chance','because of things outside your control',
+       'it was created that way','because of the laws of this universe','I do not know',]
+other = ['yes', 'no', 'maybe', 'perhaps', 'it is up to you',"ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn",
+         'it might appear to be more than you think','you will find out',"don't ask me ask a professional",
+         'of your trangressions, your stupidity, and your ignorance, one has become aware','for you see there is a prophecy','see a therapist',
+         'get help','[insert funny related quip here]']
+rand = ['ask again in 4 moons','ask again never','I do not want to answer',
+        'not enough','do you not have better places to be?','Sorry lad, the 8 ball machine is broken, step aside',
+        'does not compute','maybe your brain is going haywire','']
+howmany = ['1','2','10000','a number between 0 and infinity','3','how ever many is good','an amount','15','a small amount','a large amount']
+
+#here I'm setting up variables I will use to add the answers I want to the pool:
+whox = False
+whatx = False
+wherex = False
+whenx = False
+whyx = False
+howx = False
+otherx = False
+howmanyx = False
+
+#This function will reset the variables used:
+def reset():
+    global rand,whox,whatx,whenx,wherex,whenx,whyx,howx,howmanyx,otherx
+    whox = False
+    whatx = False
+    wherex = False
+    whenx = False
+    whyx = False
+    howx = False
+    otherx = False
+    howmanyx = False
+    rand = ['ask again in 4 moons', 'ask again never', 'I do not want to answer', 'perhaps your brain is broken',
+            'not enough', 'do you not have better places to be?', 'sorry lad the 8 ball machine is broken step aside',
+            'your questions was too tough, ask again later',
+            'does not compute']
+
+#This function constructs the pool of answers and then generates one randomly using random.choice:
+def answer():
+    global who,what,when,where,why,how,other,howmany,rand,whox,whatx,whenx,wherex,whenx,whyx,howx,howmanyx,otherx
+    if whox == True:
+        rand = rand + who
+    if whatx == True:
+        rand = rand + what
+    if whenx == True:
+        rand = rand + when
+    if wherex == True:
+        rand = rand + where
+    if whyx == True:
+        rand = rand + why
+    if howx == True:
+        rand = rand + how
+    if howmanyx == True:
+        rand = rand + howmany
+    if otherx == True:
+        rand = rand + other
+    x = random.choice(rand)
+    print(x)
+    reset()
+
+#This function searches the question asked for keywords like "what" or "when" to determine the answers added to the pool:
+def discern(x):
+    if "who" in x.lower():
+        global whox
+        whox = True
+    elif "what" in x.lower():
+        global whatx
+        whatx = True
+    elif "where" in x.lower():
+        global wherex
+        wherex = True
+    elif "when" in x.lower():
+        global whenx
+        whenx = True
+    elif "why" in x.lower():
+        global whyx
+        whyx = True
+    elif "how" in x.lower():
+        global howx
+        howx = True
+    elif "how many" in x.lower():
+        global howmanyx
+        howmanyx = True
+    else:
+        global otherx
+        otherx = True
+    answer()
+
+#Last but not least, this here ties it all together in a while loop that only breaks when the user says no to repeating,
+#As well as asking the actual question that will be checked in the Discern() function:
+
+while True:
+    question = input('[Type your question]\n')
+    discern(question)
+    leave = ''
+    while leave.lower() not in ['n','y','no','yes']:
+        leave = input('Would you like to ask another question? (y/n)\n')
+        if leave.lower() in ['n','no']:
+            break
+        elif leave.lower() in ['y','yes']:
+            continue
