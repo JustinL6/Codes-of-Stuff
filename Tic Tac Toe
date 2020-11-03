@@ -1,0 +1,318 @@
+# The reset function is used to define and reset the variables used in the game.
+def reset():
+    global a, b, c, d, e, f, g, h, i, winone, wintwo, tie
+    a = ' '
+    b = ' '
+    c = ' '
+    d = ' '
+    e = ' '
+    f = ' '
+    g = ' '
+    h = ' '
+    i = ' '
+    winone = 1
+    wintwo = 1
+    tie = 1
+
+
+# The draw_board function draws the current boardstate of the game.
+def draw_board():
+    print('[' + a + '][' + b + '][' + c + ']')
+    print('[' + d + '][' + e + '][' + f + ']')
+    print('[' + g + '][' + h + '][' + i + ']')
+
+
+# The playeronepick function prompts the first player to pick a vertical direction and then a horizontal direction to input a X. If it's already filled it will then say that the position is invalid, print the board again, and prompt them to redo their selection.
+def playeronepick():
+    topbottom = input("Top, bottom, or middle? ")
+    if topbottom.lower() in ['top']:
+        leftright = input("Left, right, or middle? ")
+        if leftright.lower() in ['left']:
+            global a
+            if a not in ['X', 'O']:
+                a = 'X'
+            else:
+                print("This isn't a valid choice.")
+                draw_board()
+                playeronepick()
+        elif leftright.lower() in ['middle']:
+            global b
+            if b not in ['X', 'O']:
+                b = 'X'
+            else:
+                print("\nThis isn't a valid choice.")
+                draw_board()
+                playeronepick()
+        elif leftright.lower() in ['right']:
+            global c
+            if c not in ['X', 'O']:
+                c = 'X'
+            else:
+                print("\nThis isn't a valid choice.")
+                draw_board()
+                playeronepick()
+        else:
+            print("\nThis isn't a valid choice.")
+            draw_board()
+            playeronepick()
+    elif topbottom.lower() in ['middle']:
+        leftright = input("Left, right, or middle? ")
+        if leftright.lower() in ['left']:
+            global d
+            if d not in ['X', 'O']:
+                d = 'X'
+            else:
+                print("\nThis isn't a valid choice.")
+                draw_board()
+                playeronepick()
+        elif leftright.lower() in ['middle']:
+            global e
+            if e not in ['X', 'O']:
+                e = 'X'
+            else:
+                print("\nThis isn't a valid choice.")
+                draw_board()
+                playeronepick()
+        elif leftright.lower() in ['right']:
+            global f
+            if f not in ['X', 'O']:
+                f = 'X'
+            else:
+                print("\nThis isn't a valid choice.")
+                draw_board()
+                playeronepick()
+        else:
+            print("\nThis isn't a valid choice.")
+            draw_board()
+            playeronepick()
+    elif topbottom.lower() in ['bottom']:
+        leftright = input("Left, right, or middle? ")
+        if leftright.lower() in ['left']:
+            global g
+            if g not in ['X', 'O']:
+                g = 'X'
+            else:
+                print("\nThis isn't a valid choice.")
+                draw_board()
+                playeronepick()
+        elif leftright.lower() in ['middle']:
+            global h
+            if h not in ['X', 'O']:
+                h = 'X'
+            else:
+                print("\nThis isn't a valid choice.")
+                draw_board()
+                playeronepick()
+        elif leftright.lower() in ['right']:
+            global i
+            if i not in ['X', 'O']:
+                i = 'X'
+            else:
+                print("\nThis isn't a valid choice.")
+                draw_board()
+                playeronepick()
+    else:
+        print("\nThis isn't a valid choice.")
+        draw_board()
+        playeronepick()
+
+
+# The playertwopick function prompts the second player to pick a vertical direction and then a horizontal direction to input a X. If it's already filled it will then say that the position is invalid, print the board again, and prompt them to redo their selection.
+def playertwopick():
+    topbottom = input("Top, bottom, or middle? ")
+    if topbottom.lower() in ['top']:
+        leftright = input("Left, right, or middle? ")
+        if leftright.lower() in ['left']:
+            global a
+            if a not in ['X', 'O']:
+                a = 'O'
+            else:
+                print("\nThis isn't a valid choice.")
+                draw_board()
+                playertwopick()
+        elif leftright.lower() in ['middle']:
+            global b
+            if b not in ['X', 'O']:
+                b = 'O'
+            else:
+                print("\nThis isn't a valid choice.")
+                draw_board()
+                playertwopick()
+        elif leftright.lower() in ['right']:
+            global c
+            if c not in ['X', 'O']:
+                c = 'O'
+            else:
+                print("\nThis isn't a valid choice.")
+                draw_board()
+                playertwopick()
+        else:
+            print("\nThis isn't a valid choice.")
+            draw_board()
+            playertwopick()
+    elif topbottom.lower() in ['middle']:
+        leftright = input("Left, right, or middle? ")
+        if leftright.lower() in ['left']:
+            global d
+            if d not in ['X', 'O']:
+                d = 'O'
+            else:
+                print("\nThis isn't a valid choice.")
+                draw_board()
+                playertwopick()
+        elif leftright.lower() in ['middle']:
+            global e
+            if e not in ['X', 'O']:
+                e = 'O'
+            else:
+                print("\nThis isn't a valid choice.")
+                draw_board()
+                playertwopick()
+        elif leftright.lower() in ['right']:
+            global f
+            if f not in ['X', 'O']:
+                f = 'O'
+            else:
+                print("\nThis isn't a valid choice.")
+                draw_board()
+                playertwopick()
+        else:
+            print("\nThis isn't a valid choice.")
+            draw_board()
+            playertwopick()
+    elif topbottom.lower() in ['bottom']:
+        leftright = input("Left, right, or middle? ")
+        if leftright.lower() in ['left']:
+            global g
+            if g not in ['X', 'O']:
+                g = 'O'
+            else:
+                print("\nThis isn't a valid choice.")
+                draw_board()
+                playertwopick()
+        elif leftright.lower() in ['middle']:
+            global h
+            if h not in ['X', 'O']:
+                h = 'O'
+            else:
+                print("\nThis isn't a valid choice.")
+                draw_board()
+                playertwopick()
+        elif leftright.lower() in ['right']:
+            global i
+            if i not in ['X', 'O']:
+                i = 'O'
+            else:
+                print("\nThis isn't a valid choice.")
+                draw_board()
+                playertwopick()
+    else:
+        print("\nThis isn't a valid choice.")
+        draw_board()
+        playertwopick()
+
+
+# This function checks the board between each player's moves to check if they have won. It does this by adding the variables together and seeing if the add up to XXX or OOO. It then checks if the game is a tie by checking if each variable has a value of X or O.
+def checkingboard():
+    global a, b, c, d, e, f, g, h, i
+    if a + b + c in ['XXX', 'OOO']:
+        global winone
+        global wintwo
+        if a + b + c in ['XXX']:
+            winone = 2
+            print(winone)
+        elif a + b + c in ['OOO']:
+            wintwo = 2
+    elif d + e + f in ['XXX', 'OOO']:
+        if d + e + f in ['XXX']:
+            winone = 2
+        elif d + e + f in ['OOO']:
+            wintwo = 2
+    elif g + h + i in ['XXX', 'OOO']:
+        if g + h + i in ['XXX']:
+            winone = 2
+        elif g + h + i in ['OOO']:
+            wintwo = 2
+    elif a + d + g in ['XXX', 'OOO']:
+        if a + d + g in ['XXX']:
+            winone = 2
+        elif a + d + g in ['OOO']:
+            wintwo = 2
+    elif b + e + h in ['XXX', 'OOO']:
+        if b + e + h in ['XXX']:
+            winone = 2
+        elif b + e + h in ['OOO']:
+            wintwo = 2
+    elif c + f + i in ['XXX', 'OOO']:
+        if c + f + i in ['XXX']:
+            winone = 2
+        elif c + f + i in ['OOO']:
+            wintwo = 2
+    elif a + e + i in ['XXX', 'OOO']:
+        if a + e + i in ['XXX']:
+            winone = 2
+        elif a + e + i in ['OOO']:
+            wintwo = 2
+    elif c + e + g in ['XXX', 'OOO']:
+        if c + e + g in ['XXX']:
+            winone = 2
+        elif c + e + g in ['OOO']:
+            wintwo = 2
+    elif a in ['X', 'O'] and b in ['X', 'O'] and c in ['X', 'O'] and d in ['X', 'O'] and e in ['X', 'O'] and f in ['X',
+                                                                                                                   'O'] and g in [
+        'X', 'O'] and h in ['X', 'O'] and i in ['X', 'O']:
+        global tie
+        tie = 2
+
+
+# This function runs the actual game by connecting each of the separate functions. It also checks if the game has ended or not to print either the win message or the tie message. In addition asks the user whether he wants to continue the game which will repeat until he inputs a "yes" or a "no".
+def Game():
+    reset()
+    global winone
+    global wintwo
+    global tie
+    while winone not in [2] and wintwo not in [2] and tie not in [2]:
+        draw_board()
+        playeronepick()
+        checkingboard()
+        if winone not in [2] and wintwo not in [2] and tie not in [2]:
+            draw_board()
+            playertwopick()
+            checkingboard()
+    if winone in [2]:
+        draw_board()
+        print('Player one has won!')
+        playagain = input('Do you want to play again? ')
+        while playagain.lower() not in ['yes', 'no']:
+            print('Please put a valid answer')
+        if playagain.lower() in ['yes']:
+            reset()
+            Game()
+        elif playagain.lower() in ['no']:
+            print('The game has ended')
+    elif wintwo in [2]:
+        draw_board()
+        print('Player two has won!')
+        playagain = input('Do you want to play again? ')
+        while playagain.lower() not in ['yes', 'no']:
+            print('Please put a valid answer')
+        if playagain.lower() in ['yes']:
+            reset()
+            Game()
+        elif playagain.lower() in ['no']:
+            print('The game has ended')
+    elif tie in [2]:
+        print('The game has ended in a tie.')
+        playagain = input('Do you want to play again? ')
+        while playagain.lower() not in ['yes', 'no']:
+            print('Please put a valid answer')
+            playagain = input('Do you want to play again? ')
+        if playagain.lower() in ['yes']:
+            reset()
+            Game()
+        elif playagain.lower() in ['no']:
+            print('The game has ended')
+
+
+print('Welcome to TicTacToe!')
+Game()
